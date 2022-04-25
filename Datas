@@ -1,0 +1,55 @@
+package com.company;
+
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        LocalDate dataOggi = LocalDate.now();
+        System.out.println(dataOggi);
+
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println(dataOggi.format(formato));
+
+        DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
+        System.out.println(dataOggi.format(formato2));
+
+        DateTimeFormatter formato3 = DateTimeFormatter.ofPattern("dd-MMM-yyy");
+        System.out.println(dataOggi.format(formato3));
+
+        DateTimeFormatter formato4 = DateTimeFormatter.ofPattern("E, dd-MM-yy");
+        System.out.println(dataOggi.format(formato4));
+
+
+        LocalTime oraAdesso = LocalTime.now();
+        System.out.println(oraAdesso);
+
+        LocalDateTime dataOra = LocalDateTime.now();
+        System.out.println(dataOra);
+
+        LocalDate dataGenerica = LocalDate.of(2024,11,3);
+        System.out.println(dataGenerica.format(formato4));
+
+        LocalDate dataGenerica2 = LocalDate.of(2024, Month.APRIL,19);
+        System.out.println(dataGenerica.format(formato3));
+
+        System.out.println(" giorno: " + dataGenerica2.getDayOfMonth());
+        System.out.println(" giorno della settimana: " + dataGenerica2.getDayOfWeek());
+        System.out.println(" mese: " + dataGenerica2.getMonth());
+        System.out.println(" anno: " + dataGenerica2.getYear());
+        System.out.println(" numero giorno nellanno: " + dataGenerica2.getDayOfYear());
+        System.out.println(" dopo 2 giorni: " + dataGenerica2.plusDays(2));
+        System.out.println(" dopo 30 giorni: " + dataGenerica2.plusDays(30));
+
+        System.out.println(dataGenerica2.isBefore(dataGenerica));
+
+        System.out.println(dataGenerica2.isBefore(dataGenerica));
+
+        Period periodo = Period.between(dataGenerica, dataGenerica2);
+        System.out.println(periodo.getYears() + " Anos " + periodo.getMonths() + " Meses " + periodo.getDays() + " Dias");
+        System.out.println("Apenas meses: " + periodo.toTotalMonths());
+}
+
+}
